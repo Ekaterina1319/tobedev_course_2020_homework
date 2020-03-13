@@ -2,7 +2,7 @@
 
 const readline = require('readline');
 
-const rl = readline.createInterface({ input: process.stdin , output: process.stdout });
+const rl = readline.createInterface({input: process.stdin, output: process.stdout});
 
 const getLine = (function () {
     const getLineGen = (async function* () {
@@ -16,28 +16,28 @@ const getLine = (function () {
 const phoneBook = {}
 
 
-async function add(){
-console.log('Введите имя');
-const name = String(await getLine());
-console.log('Введите номер телефона');
-const phone = Number(await getLine());
-phoneBook[name] = phone;
+async function add() {
+    console.log('Введите имя');
+    const name = String(await getLine());
+    console.log('Введите номер телефона');
+    const phone = Number(await getLine());
+    phoneBook[name] = phone;
 }
 
-async function print (){
+async function print() {
     console.log(phoneBook);
 }
 
-async function deletePhone(){
-console.log('Введите номер для удаления');
-const phone = Number(await getLine());
-delete phoneBook[Number]
+async function deletePhone() {
+    console.log('Введите номер для удаления');
+    const phone = Number(await getLine());
+    delete phoneBook[Number]
 }
 
-async function searchPhone(){
-console.log('Поиск имени');
-const name = String(await getLine());
-let result = (name in phoneBook) ? console.log(`Номер телефона у ${name}: ${phoneBook[name]}`) : console.log("Такого имени нет в базе");
+async function searchPhone() {
+    console.log('Поиск имени');
+    const name = String(await getLine());
+    let result = (name in phoneBook) ? console.log(`Номер телефона у ${name}: ${phoneBook[name]}`) : console.log("Такого имени нет в базе");
 }
 
 const main = async () => {
@@ -45,13 +45,13 @@ const main = async () => {
     const command = await getLine();
     if (command === 'exit') {
         process.exit(0);
-    } else if (command === 'add'){
+    } else if (command === 'add') {
         await add();
-    } else if (command === 'print'){
+    } else if (command === 'print') {
         await print();
     } else if (command === 'deletePhone') {
         await deletePhone();
-    } else if (command === 'search'){
+    } else if (command === 'search') {
         await searchPhone();
     } else {
         console.log('Неизвестная команда');
